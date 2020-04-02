@@ -1,4 +1,5 @@
 const express = require('express');
+const auth = require('../middlewares/auth');
 const router = express.Router();
 
 //GET / 欢迎页面
@@ -7,7 +8,7 @@ router.get('/', (req,res) => {
 })
 
 //GET /chatroom 聊天室页面
-router.get('/chatroom', (req,res) => {
+router.get('/chatroom', auth, (req,res) => {
     res.render('chatroom.ejs');
 })
 
