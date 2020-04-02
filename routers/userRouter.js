@@ -24,7 +24,10 @@ router.post('/login', async (req,res) => {
             userId : user._id,
             username: user.username
         }
-        res.send('登录成功')
+        let redirect = req.session.redirect || '/';
+        //重定向跳转
+        res.redirect(redirect);
+        // res.redirect(req.query.redirect);
     }else{
         //不通过，用户名或密码不正确
         throw new Error('用户名或密码不正确');
