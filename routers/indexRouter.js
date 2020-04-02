@@ -9,7 +9,7 @@ router.get('/', (req,res) => {
 
 //GET /chatroom 聊天室页面
 router.get('/chatroom', auth, (req,res) => {
-    res.render('chatroom.ejs');
+    res.render('chatroom.ejs',{username: req.auth.username});//渲染聊天室页面的时候，把当前的用户名变量带到模板页面
 })
 
 //GET /login 登录页面
