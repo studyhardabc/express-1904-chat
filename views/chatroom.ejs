@@ -103,13 +103,21 @@
         socket.emit('message', {
           message: value
         })
+        $('#value').val('');
       })
+
+      $('#value').keydown(function (e){
+        if(e.keyCode == 13){
+          var value = $('#value').val();
+        if(!value) return
+        //触发服务器的message事件
+        socket.emit('message', {
+          message: value
+        })
+        $('#value').val('');
+        }
+      }) 
     })
-
-
-
-
-
   </script>
 </body>
 
