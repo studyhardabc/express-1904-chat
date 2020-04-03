@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
 
-    avatar: {type: String, default: 'http://localhost:3000/assets/img/avatar.png'}
+    avatar: {type: String, default: `${process.env.BASEURL}/assets/img/avatar.png`}
 })
 
 userSchema.pre('save', function (next){

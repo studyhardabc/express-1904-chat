@@ -54,7 +54,7 @@
   <script>
     $(function (){
       //建立socketio的连接
-      const socket = io('http://localhost:3000');
+      const socket = io();
       
       //触发setName这个事件
       socket.emit('setName','<%= username %>');

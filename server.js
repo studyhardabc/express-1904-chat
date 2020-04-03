@@ -1,4 +1,6 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 //引入socket.io
 const socketIo = require('socket.io');
 const session = require('express-session');
@@ -22,7 +24,7 @@ app.use(express.urlencoded({extended:true}));
 //会给req对象上添加一个session的属性
 app.use(session({
   //密钥
-  secret: 'adsikajfiskldjifodaej',
+  secret: process.env.SESSION_SECRET,
   //是否每次有请求的时候都去更新有效时间
   resave: false,
   //是否初始化时设置一次
